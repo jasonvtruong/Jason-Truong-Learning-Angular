@@ -9,4 +9,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('Jason-Truong-Learning-Angular');
+  // Lets make a variable
+  name : string = "Jason"
+
+  // Once you assign a var type, it is forever that type
+  // name : string = "bob"
+
+  new : string = "Truong"
 }
