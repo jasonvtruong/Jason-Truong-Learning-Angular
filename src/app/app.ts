@@ -5,7 +5,7 @@ import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgForOf, NgIf],
+  imports: [NgForOf, NgIf],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
