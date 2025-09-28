@@ -1,9 +1,1 @@
-<div *ngFor = "let character of characterList">
-  <h1>{{character.name}}</h1>
-  <h2>{{character.riderName}}</h2>
-  <p *ngIf="character.age">Age: {{character.age}}</p> <!-- only display age if possible -->
-  <p>Gender: {{character.gender}}</p>
-  <p>Rider Type: {{character.type}}</p>
-  <p>Motif: {{character.motif}}</p>
-  <p>Status: {{character.isARider ? 'Rider' : 'Non-Rider'}}</p>
-</div>
+<app-character-list></app-character-list>
