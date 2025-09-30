@@ -5,5 +5,6 @@ export interface Character {
   riderName: string,
   type: string,
   motif: string,
-  isARider?: boolean;
+  isARider?: boolean,
+  imageName: string;
 }

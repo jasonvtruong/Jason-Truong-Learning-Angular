@@ -17,8 +17,14 @@ div {
   box-shadow: 0 0 5px rgb(21, 17, 26);
 }
 
-h2, h3 {
+h1, h2, h3 {
   font-family: "Overpass", sans-serif;
+}
+
+h1 {
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
 }
 
 h2 {
