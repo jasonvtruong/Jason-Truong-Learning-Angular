@@ -34,10 +34,20 @@ h3 {
 }
 
 p {
-  font-family: "Rubik";
+  font-family: "Rubik", sans-serif;
   color: rgb(160, 156, 185);
 }
 
 p:last-of-type {
   color: darkgrey;
+}
+
+.even {
+  display: block;
+  background-color: rgb(131, 108, 161);
+}
+
+.odd {
+  display: block;
+  background-color: rgb(33, 28, 78);
 }
