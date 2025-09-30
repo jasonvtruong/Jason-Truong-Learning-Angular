@@ -7,10 +7,12 @@ h1 {
 
 .even {
   display: block;
+  border: 2px solid rebeccapurple;
   background-color: rgb(47, 39, 59);
 }
 
 .odd {
   display: block;
+  border: 2px solid rebeccapurple;
   background-color: rgb(66, 53, 80);
 }
