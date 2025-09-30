@@ -1,4 +1,10 @@
 <div>
-  <h1>{{character?.name}}</h1>
-  <img src="images/{{character?.imageName}}.png" alt="Portrait of {{character?.name}}" />
+  <h2>{{character?.name}}</h2>
+  <h3>{{character?.riderName}}</h3>
+  <p *ngIf="character?.age">Age: {{character?.age}}</p> <!-- only display age if possible -->
+  <p>Gender: {{character?.gender}}</p>
+  <p>Rider Type: {{character?.type}}</p>
+  <p>Motif: {{character?.motif}}</p>
+  <p>Status: {{character?.isARider ? 'Rider' : 'Non-Rider'}}</p>
+  <img src="images/{{character?.imageName}}.png" alt="Portrait of {{character?.name}}"/>
 </div>

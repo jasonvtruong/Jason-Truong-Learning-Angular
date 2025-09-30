@@ -1,16 +1,5 @@
 <h1>Characters</h1>
 
-<div *ngFor = "let character of characterList">
-  <h2>{{character.name}}</h2>
-  <h3>{{character.riderName}}</h3>
-  <p *ngIf="character.age">Age: {{character.age}}</p> <!-- only display age if possible -->
-  <p>Gender: {{character.gender}}</p>
-  <p>Rider Type: {{character.type}}</p>
-  <p>Motif: {{character.motif}}</p>
-  <p>Status: {{character.isARider ? 'Rider' : 'Non-Rider'}}</p>
-  <img src="images/{{character.imageName}}.png" alt="Portrait of {{character.name}}"/>
-</div>
-
-@for (character of characterList2; track character.name; let e = $even, o = $odd) {
+@for (character of characterList; track character.name; let e = $even, o = $odd) {
   <app-character-list-item [class.even]="e" [class.odd]="o" [character]="character"></app-character-list-item>
 }
