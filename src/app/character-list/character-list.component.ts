@@ -29,5 +29,35 @@ export class CharacterListComponent implements OnInit {
         complete: () => console.log("Character data fetch complete!")
       }
     )
-  }
-}
+
+
+    // CRUD tests for bonus mark
+    // create
+    this.characterService.addCharacter({id: 31, name: "Supana Kurogane", age: 24, gender: "Male", riderName: "Kamen Rider Valvarad", type: "Tertiary", motif: "Mechanic, Alchemist", isARider: true, imageName: "SupanaKurogane"})
+
+    // retrieve
+    // subscribe to retrieve data from character
+    this.characterService.getCharacterById(14).subscribe(
+      character => {
+        if(character != undefined){
+              console.log("Their name is " + character.name);
+              console.log("And they are " + character.riderName);
+            }
+            else {
+              // print not found if there is no character with given id
+              console.log("Not a valid character!")
+            }
+      }
+    );
+
+    // update
+    this.characterService.updateCharacter({id: 12, name: "Raito Sonozaki", gender: "Male", riderName: "Kamen Rider Cyclone", type: "Primary", motif: "Grasshopper, Wind", isARider: true, imageName: "RaitoSonozaki"});
+
+    // delete
+    this.characterService.deleteCharacter(6).subscribe(
+      characterList => {
+        this.characterList = characterList;
+      }
+    )
+  } // end ngOnInit
+} // end class
