@@ -1,6 +1,7 @@
 <div>
   <h2>{{character?.name}}</h2>
   <h3>{{character?.riderName}}</h3>
+  <p>#{{character?.id}}</p>
   <p *ngIf="character?.age">Age: {{character?.age}}</p> <!-- only display age if possible -->
   <p>Gender: {{character?.gender}}</p>
   <p>Rider Type: {{character?.type}}</p>
