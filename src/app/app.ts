@@ -9,7 +9,7 @@ import {CharacterService} from './Services/character.service';
 
 @Component({
   selector: 'app-root',
-  imports: [NgForOf, NgIf, CharacterListComponent, CharacterListItemComponent],
+  imports: [NgForOf, NgIf, CharacterListComponent, CharacterListItemComponent, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
