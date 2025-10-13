@@ -1,2 +1,13 @@
-<app-character-list-item [character]="newCharacter"></app-character-list-item>
-<app-character-list></app-character-list>
+<div class="nav-bar">
+  <nav>
+    <a routerLink="/characters" routerLinkActive="active"><img ngSrc="/images/icon-characters.png" width="20" height="20" />Character List</a>
+    <a routerLink="/modify-character" routerLinkActive="active"><img ngSrc="/images/icon-modifycharacters.png" width="20" height="20" />Modify Character</a>
+  </nav>
+</div>
+
+<div class="app-container">
+  <router-outlet></router-outlet>
+</div>
+
+<!--<app-character-list-item [character]="newCharacter"></app-character-list-item>-->
+<!--<app-character-list></app-character-list>-->

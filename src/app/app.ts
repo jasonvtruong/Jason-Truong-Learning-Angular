@@ -1,15 +1,16 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {Character} from './Shared/Models/character';
 import {NgForOf, NgIf} from '@angular/common';
 import {CharacterListComponent} from './character-list/character-list.component';
 import {CharacterListItemComponent} from './character-list-item/character-list-item.component';
 import {characterList} from './data/mock-character';
 import {CharacterService} from './Services/character.service';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [NgForOf, NgIf, CharacterListComponent, CharacterListItemComponent, RouterOutlet],
+  imports: [NgForOf, NgIf, CharacterListComponent, CharacterListItemComponent, RouterOutlet, RouterLink, RouterLinkActive, NgOptimizedImage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,30 @@
+h1, h2 {
+  font-family: "Overpass", sans-serif;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 18px;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p {
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+}
+
+a {
+  color: rebeccapurple;
+  font-size: 1.3em;
+  text-decoration: none;
+}
+
+a:active {
+  color: white;
+}
