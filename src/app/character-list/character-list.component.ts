@@ -3,13 +3,15 @@ import {Character} from '../Shared/Models/character';
 import {CharacterService} from '../Services/character.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {CharacterListItemComponent} from '../character-list-item/character-list-item.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-character-list',
   imports: [
     NgForOf,
     NgIf,
-    CharacterListItemComponent
+    CharacterListItemComponent,
+    RouterLink
   ],
   templateUrl: './character-list.component.html',
   styleUrl: './character-list.component.css'
