@@ -12,7 +12,7 @@ export class CharacterService {
 
   // method to return Observable of character array
   getCharacters(): Observable<Character[]>{
-    return of(characterList);
+    return of(this.characters);
   }
 
   // create a new character
