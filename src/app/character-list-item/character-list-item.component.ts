@@ -14,7 +14,7 @@ import {CharacterService} from '../Services/character.service';
   styleUrl: './character-list-item.component.css'
 })
 export class CharacterListItemComponent implements OnInit {
-  character: Character | undefined;
+  @Input() character: Character | undefined;
   characterList: Character[] = []; // store the list of characters
   currentIndex: number = 0; // to track the current index
 
@@ -25,8 +25,14 @@ export class CharacterListItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.characterService.getCharacters().subscribe(characters => {
-      this.characterList = characters;
+    // this.characterService.getCharacters().subscribe(cha`1racters => {
+    //   this.characterList = characters;
+
+      this.characterService.getCharacters().subscribe({
+        next: (data: Character[]) => this.characterList = data,
+        error: err => console.error("Error fetching Students", err),
+        complete: () => console.log("Student data fetch complete!")
+      });
 
       // subscribe to paramMap changes for page changes
       this.route.paramMap.subscribe(params => {
@@ -36,6 +42,9 @@ export class CharacterListItemComponent implements OnInit {
           this.character = this.characterList[this.currentIndex];
         }
       });
-    });
+  }
+
+  navigateToForm(): void {
+    this.router.navigate(['modify-character']);
   }
 }

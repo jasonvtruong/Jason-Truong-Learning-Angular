@@ -40,4 +40,8 @@ export class CharacterService {
   deleteCharacter(characterId:number): void {
     this.characters = this.characters.filter(character => character.id !== characterId);
   }
+
+  generateNewId(): number {
+    return this.characters.length > 0 ? Math.max(...this.characters.map(character => character.id)) + 1 : 1;
+  }
 }
