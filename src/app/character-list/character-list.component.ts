@@ -56,10 +56,10 @@ export class CharacterListComponent implements OnInit {
     this.characterService.updateCharacter({id: 12, name: "Raito Sonozaki", gender: "Male", riderName: "Kamen Rider Cyclone", type: "Primary", motif: "Grasshopper, Wind", isARider: true, imageName: "RaitoSonozaki"});
 
     // delete
-    this.characterService.deleteCharacter(6).subscribe(
-      characterList => {
-        this.characterList = characterList;
-      }
-    )
+    // this.characterService.deleteCharacter(6).subscribe(
+    //   characterList => {
+    //     this.characterList = characterList;
+    //   }
+    // )
   } // end ngOnInit
 } // end class

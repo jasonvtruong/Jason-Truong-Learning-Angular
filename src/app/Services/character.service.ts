@@ -16,9 +16,9 @@ export class CharacterService {
   }
 
   // create a new character
-  addCharacter(newCharacter:Character): Observable<Character[]>{
+  addCharacter(newCharacter:Character): Observable<Character>{
     this.characters.push(newCharacter);
-    return of(this.characters);
+    return of(newCharacter);
   }
 
   // retrieve a character
@@ -28,17 +28,18 @@ export class CharacterService {
   }
 
   // update a character
-  updateCharacter(updatedCharacter:Character): Observable<Character[]>{
+  updateCharacter(updatedCharacter:Character): Observable<Character | undefined>{
     const index = this.characters.findIndex(character => character.id === updatedCharacter.id);
     if(index !== -1){
       this.characters[index] = updatedCharacter;
+      return of(updatedCharacter);
     }
-    return of(this.characters);
+    return of(undefined);
   }
 
   // delete a character
-  deleteCharacter(characterId:number): Observable<Character[]>{
+  deleteCharacter(characterId:number): void { // Observable<Character[]>
     this.characters = this.characters.filter(character => character.id !== characterId);
-    return of(this.characters);
+    // return of(this.characters);
   }
 }
