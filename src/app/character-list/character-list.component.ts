@@ -3,7 +3,7 @@ import {Character} from '../Shared/Models/character';
 import {CharacterService} from '../Services/character.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {CharacterListItemComponent} from '../character-list-item/character-list-item.component';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-character-list',
@@ -19,7 +19,7 @@ import {RouterLink} from '@angular/router';
 export class CharacterListComponent implements OnInit {
   characterList: Character[] = [];
 
-  constructor(private characterService: CharacterService) {
+  constructor(private characterService: CharacterService, private router: Router) {
 
   }
 
@@ -62,4 +62,8 @@ export class CharacterListComponent implements OnInit {
     //   }
     // )
   } // end ngOnInit
+
+  navigateToForm(): void {
+    this.router.navigate(['modify-character']);
+  }
 } // end class

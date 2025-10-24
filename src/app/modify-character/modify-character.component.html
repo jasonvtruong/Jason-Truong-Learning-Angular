@@ -1,1 +1,64 @@
 <h1>Modify Character</h1>
+<form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" id="id" />
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" />
+  </div>
+
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="number" id="age" />
+  </div>
+
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <select id="gender">
+      <option value="m">Male</option>
+      <option value="f">Female</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="riderName">Rider Name</label>
+    <input type="text" id="riderName" />
+  </div>
+
+  <div class="form-group">
+    <label for="type">Rider Type</label>
+    <select id="type">
+      <option value="type1">Primary</option>
+      <option value="type2">Secondary</option>
+      <option value="type3">Tertiary</option>
+    </select>
+
+    <!--    <input type="text" id="type" />-->
+  </div>
+
+  <div class="form-group">
+    <label for="motif">Motif</label>
+    <input type="text" id="motif" />
+  </div>
+
+  <div class="form-group">
+    <label for="isARider">Rider Status</label>
+    <input type="checkbox" id="isARider" />
+  </div>
+
+  <div class="form-group">
+    <label for="imageName">Image Name</label>
+    <input type="text" id="imageName" />
+  </div>
+
+
+  <!-- Add Button -->
+  <button type="submit">Submit</button>
+
+  <!-- Update Button -->
+  <button type="button">Update</button>
+
+</form>
