@@ -23,8 +23,7 @@ export class CharacterService {
 
   // retrieve a character
   getCharacterById(characterId:number): Observable<Character | undefined>{
-    const character = this.characters.find(character => character.id === characterId);
-    return of(character);
+    return of(this.characters.find(character => character.id === characterId));
   }
 
   // update a character
@@ -38,8 +37,7 @@ export class CharacterService {
   }
 
   // delete a character
-  deleteCharacter(characterId:number): void { // Observable<Character[]>
+  deleteCharacter(characterId:number): void {
     this.characters = this.characters.filter(character => character.id !== characterId);
-    // return of(this.characters);
   }
 }
