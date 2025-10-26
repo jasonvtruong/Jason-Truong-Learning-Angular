@@ -2,6 +2,12 @@
 
 @for (character of characterList; track character.name; let e = $even, o = $odd) {
   <app-character-list-item [character]="character" [class.even]="e" [class.odd]="o" [routerLink]="['/characters', character.id]"></app-character-list-item>
+
+  <!-- Edit Button -->
+  <button type="button" [routerLink]="['/modify-character', character.id]">Edit</button>
+
+  <!-- Delete Button -->
+  <button type="button">Delete</button>
 }
 
 

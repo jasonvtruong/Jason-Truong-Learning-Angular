@@ -19,7 +19,7 @@ import {Router, RouterLink} from '@angular/router';
 export class CharacterListComponent implements OnInit {
   characterList: Character[] = [];
 
-  constructor(private characterService: CharacterService) {
+  constructor(private characterService: CharacterService, private router: Router) {
 
   }
 

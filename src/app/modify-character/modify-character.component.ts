@@ -23,7 +23,7 @@ export class ModifyCharacterComponent implements OnInit {
     private router: Router
   ) {
     this.characterForm = this.fb.group({
-      id: ['', Validators.required],
+      id: [characterService.generateNewId()],
       name: ['', Validators.required],
       age: [''],
       gender: [''],

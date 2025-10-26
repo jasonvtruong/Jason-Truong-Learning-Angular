@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'characters', component: CharacterListComponent},
   {path: 'characters/:id', component: CharacterListItemComponent},
   {path: 'modify-character', component: ModifyCharacterComponent},
+  {path: 'modify-character/:id', component: ModifyCharacterComponent},
   {path: '**', component: PageNotFoundComponent} // Wildcard route
 ];
 

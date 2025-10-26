@@ -20,8 +20,7 @@ export class CharacterListItemComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private characterService: CharacterService,
-    private router: Router
+    private characterService: CharacterService
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +43,5 @@ export class CharacterListItemComponent implements OnInit {
       });
   }
 
-  navigateToForm(): void {
-    this.router.navigate(['modify-character']);
-  }
+
 }
