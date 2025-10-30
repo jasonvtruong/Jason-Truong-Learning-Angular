@@ -36,5 +36,18 @@ export class CharacterListComponent implements OnInit {
     // CRUD tests for bonus mark
   } // end ngOnInit
 
+  onDelete(id:number): void {
+    this.characterService.deleteCharacter(id);
+
+    // retrieve the characters again to update changes
+    this.characterService.getCharacters().subscribe({
+        next: (data: Character[]) => this.characterList = data,
+        error: err => console.error("Error fetching Characters",
+          err),
+        complete: () => console.log("Character data fetch complete!")
+      }
+    )
+  }
+
 
 } // end class

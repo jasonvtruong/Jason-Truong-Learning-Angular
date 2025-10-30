@@ -23,7 +23,7 @@ export class ModifyCharacterComponent implements OnInit {
     private router: Router
   ) {
     this.characterForm = this.fb.group({
-      id: [characterService.generateNewId()],
+      id: [''],
       name: ['', Validators.required],
       age: [''],
       gender: [''],
@@ -56,8 +56,7 @@ export class ModifyCharacterComponent implements OnInit {
     }
     else {
       // add new student, generate a new ID
-      const newId = this.characterService.generateNewId();
-      character.id = newId;
+      character.id = this.characterService.generateNewId();
       this.characterService.addCharacter(character);
     }
 

@@ -7,7 +7,7 @@
   <button type="button" [routerLink]="['/modify-character', character.id]">Edit</button>
 
   <!-- Delete Button -->
-  <button type="button">Delete</button>
+  <button type="button" (click)="onDelete(character.id)">Delete</button>
 }
 
 
