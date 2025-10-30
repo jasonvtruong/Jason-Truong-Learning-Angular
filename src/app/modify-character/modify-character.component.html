@@ -10,10 +10,18 @@
     <input type="text" id="name" formControlName="name" />
   </div>
 
+  @if(characterForm.get('name')?.invalid){
+    <div>Name is required</div>
+  }
+
   <div class="form-group">
     <label for="age">Age</label>
     <input type="number" id="age" formControlName="age" />
   </div>
+
+  @if(characterForm.get('age')?.invalid){
+    <div>Age must be 2 digits</div>
+  }
 
   <div class="form-group">
     <label for="gender">Gender</label>
@@ -27,6 +35,10 @@
     <label for="riderName">Rider Name</label>
     <input type="text" id="riderName" formControlName="riderName" />
   </div>
+
+  @if(characterForm.get('riderName')?.invalid){
+    <div>Rider name cannot be longer than 20 characters</div>
+  }
 
   <div class="form-group">
     <label for="type">Rider Type</label>

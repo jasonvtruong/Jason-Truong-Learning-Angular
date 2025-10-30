@@ -25,9 +25,9 @@ export class ModifyCharacterComponent implements OnInit {
     this.characterForm = this.fb.group({
       id: [''],
       name: ['', Validators.required],
-      age: [''],
+      age: ['', Validators.pattern("\\d{2}")],
       gender: [''],
-      riderName: [''],
+      riderName: ['', Validators.maxLength(20)],
       type: [''],
       motif: [''],
       isARider: [true],

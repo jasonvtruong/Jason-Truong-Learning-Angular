@@ -22,3 +22,8 @@ label {
 label, input {
   display: block;
 }
+
+div {
+  font-family: "Overpass", sans-serif;
+  color: lightpink;
+}
