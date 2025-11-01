@@ -2,8 +2,8 @@ import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {Character} from '../Shared/Models/character';
 
 export class InMemoryDataService implements InMemoryDbService {
-  createDb(): {characterList: Character[]} {
-    const characterList: Character[] =
+  createDb(): {characters: Character[]} {
+    const characters: Character[] =
       [
         {id: 10, name: "Tsukasa Kadoya", gender: "Male", riderName: "Kamen Rider Decade", type: "Primary", motif: "Cards, Barcode", isARider: true, imageName: "TsukasaKadoya"},
         {id: 11, name: "Shotaro Hidari", gender: "Male", riderName: "Kamen Rider Double", type: "Primary", motif: "Grasshopper, Wind, Joker", isARider: true, imageName: "ShotaroHidari"},
@@ -16,6 +16,6 @@ export class InMemoryDataService implements InMemoryDbService {
         {id: 13, name: "Ryu Terui", gender: "Male", riderName: "Kamen Rider Accel", type: "Secondary", motif: "Motorcycle", isARider: true, imageName: "RyuTendo"},
         {id: 6, name: "Masato Kusaka", gender: "Male", riderName: "Kamen Rider Kaixa", type: "Secondary", motif: "Chi symbol, Hornet", isARider: true, imageName: "MasatoKusaka"}
       ];
-    return {characterList};
+    return {characters};
   }
 }

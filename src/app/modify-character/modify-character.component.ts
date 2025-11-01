@@ -3,11 +3,13 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {ActivatedRoute, Router} from '@angular/router';
 import {CharacterService} from '../Services/character.service';
 import {Character} from '../Shared/Models/character';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-modify-character',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './modify-character.component.html',
   styleUrl: './modify-character.component.css'
@@ -15,6 +17,7 @@ import {Character} from '../Shared/Models/character';
 export class ModifyCharacterComponent implements OnInit {
   characterForm: FormGroup;
   character: Character | undefined;
+  error: string | null = null;
 
   constructor (
     private fb: FormBuilder,
@@ -38,11 +41,18 @@ export class ModifyCharacterComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if(id){
-      this.characterService.getCharacterById(+id).subscribe(character => {
-        if(character){
-          this.character = character;
-          this.characterForm.patchValue(character);
+      this.characterService.getCharacterById(+id).subscribe( {
+        next: character => {
+          if(character){
+            this.character = character;
+            this.characterForm.patchValue(character);
+          }
+        },
+        error: err => {
+          this.error = "Error fetching character";
+          console.error("Error fetching student:", err);
         }
+
       });
     }
   }
@@ -52,12 +62,11 @@ export class ModifyCharacterComponent implements OnInit {
 
     // check if updating an existing character
     if(character.id){
-      this.characterService.updateCharacter(character);
+      this.characterService.updateCharacter(character).subscribe(() => this.router.navigate(['/characters']));
     }
     else {
-      // add new student, generate a new ID
-      character.id = this.characterService.generateNewId();
-      this.characterService.addCharacter(character);
+      // add new student
+      this.characterService.addCharacter(character).subscribe(() => this.router.navigate(['/characters']));
     }
 
     this.router.navigate(['/characters']);

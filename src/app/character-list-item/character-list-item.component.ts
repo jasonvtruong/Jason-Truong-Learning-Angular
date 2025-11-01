@@ -28,19 +28,22 @@ export class CharacterListItemComponent implements OnInit {
     //   this.characterList = characters;
 
       this.characterService.getCharacters().subscribe({
-        next: (data: Character[]) => this.characterList = data,
-        error: err => console.error("Error fetching Students", err),
-        complete: () => console.log("Student data fetch complete!")
+        next: (data: Character[]) => {
+          this.characterList = data;
+
+          // subscribe to paramMap changes for page changes
+          this.route.paramMap.subscribe(params => {
+            const id = Number(params.get('id'));
+            if(id){
+              this.currentIndex = this.characterList.findIndex(character => character.id === id);
+              this.character = this.characterList[this.currentIndex];
+            }
+          });
+        },
+        error: err => console.error("Error fetching Characters", err),
+        complete: () => console.log("Character data fetch complete!")
       });
 
-      // subscribe to paramMap changes for page changes
-      this.route.paramMap.subscribe(params => {
-        const id = Number(params.get('id'));
-        if(id){
-          this.currentIndex = this.characterList.findIndex(character => character.id === id);
-          this.character = this.characterList[this.currentIndex];
-        }
-      });
   }
 
 

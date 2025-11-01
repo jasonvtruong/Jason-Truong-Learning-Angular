@@ -27,3 +27,14 @@ div {
   font-family: "Overpass", sans-serif;
   color: lightpink;
 }
+
+.error {
+  font-size: 1.5em;
+  color: #ea3131;
+  background-color: rgb(45, 36, 55);
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+}

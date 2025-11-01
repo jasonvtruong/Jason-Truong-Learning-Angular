@@ -24,6 +24,7 @@ export class CharacterService {
 
   // create a new character
   addCharacter(newCharacter:Character): Observable<Character>{
+    newCharacter.id = this.generateNewId();
     return this.http.post<Character>(this.apiUrl, newCharacter);
   }
 

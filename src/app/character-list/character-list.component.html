@@ -10,4 +10,6 @@
   <button type="button" (click)="onDelete(character.id)">Delete</button>
 }
 
+<div *ngIf="error" class="error">{{error}}</div>
+
 

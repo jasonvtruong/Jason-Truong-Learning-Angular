@@ -1,4 +1,7 @@
 <h1>Modify Character</h1>
+
+<div *ngIf="error" class="error">{{error}}</div>
+
 <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="id">ID</label>
