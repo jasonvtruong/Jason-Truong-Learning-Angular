@@ -6,6 +6,10 @@ import {CharacterListComponent} from './app/character-list/character-list.compon
 import {CharacterListItemComponent} from './app/character-list-item/character-list-item.component';
 import {PageNotFoundComponent} from './app/page-not-found/page-not-found.component';
 import {ModifyCharacterComponent} from './app/modify-character/modify-character.component';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {importProvidersFrom} from '@angular/core';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './app/Services/in-memory-data.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/characters', pathMatch: 'full'},
@@ -17,5 +21,9 @@ const routes: Routes = [
 ];
 
 bootstrapApplication(App, {
-  providers: [provideRouter(routes)]
-}).then(r => console.log("Bootstrap successful"));
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 1000})) // import providers dynamically
+  ]
+}).then(r => console.log("Bootstrap successful")).catch((err) => console.error(err));
