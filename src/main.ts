@@ -24,6 +24,6 @@ bootstrapApplication(App, {
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
     provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 1000})) // import providers dynamically
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 1})) // import providers dynamically
   ]
 }).then(r => console.log("Bootstrap successful")).catch((err) => console.error(err));
