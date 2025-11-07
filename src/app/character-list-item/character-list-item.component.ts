@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Character} from '../Shared/Models/character';
-import {NgForOf, NgIf} from '@angular/common';
+import {DatePipe, NgForOf, NgIf, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CharacterService} from '../Services/character.service';
 
@@ -8,7 +8,10 @@ import {CharacterService} from '../Services/character.service';
   selector: 'app-character-list-item',
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    UpperCasePipe,
+    TitleCasePipe,
+    DatePipe
   ],
   templateUrl: './character-list-item.component.html',
   styleUrl: './character-list-item.component.css'

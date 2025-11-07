@@ -33,6 +33,7 @@ export class ModifyCharacterComponent implements OnInit {
       riderName: ['', Validators.maxLength(20)],
       type: [''],
       motif: [''],
+      finisherMove: [''],
       isARider: [true],
       imageName: ['']
     });
