@@ -3,6 +3,7 @@ import {Character} from '../Shared/Models/character';
 import {DatePipe, NgForOf, NgIf, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CharacterService} from '../Services/character.service';
+import {TypeColorPipe} from '../pipes/type-color.pipe';
 
 @Component({
   selector: 'app-character-list-item',
@@ -11,7 +12,8 @@ import {CharacterService} from '../Services/character.service';
     NgIf,
     UpperCasePipe,
     TitleCasePipe,
-    DatePipe
+    DatePipe,
+    TypeColorPipe
   ],
   templateUrl: './character-list-item.component.html',
   styleUrl: './character-list-item.component.css'

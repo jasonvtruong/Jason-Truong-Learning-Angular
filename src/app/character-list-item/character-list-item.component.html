@@ -1,15 +1,15 @@
-<div *ngIf="characterList[currentIndex]">
-  <h2>{{character?.name | titlecase}}</h2>
-  <h3>{{character?.riderName}}</h3>
-  <p>#{{character?.id}}</p>
-  <p *ngIf="character?.age">Age: {{character?.age}}</p> <!-- only display age if possible -->
-  <p>Gender: {{character?.gender}}</p>
-  <p>Rider Type: {{character?.type}}</p>
-  <p>Motif: {{character?.motif}}</p>
-  <p>Finisher: "{{character?.finisherMove | uppercase}}"</p>
-  <p>Debut: {{character?.debutDate | date:'longDate'}}</p>
-  <p>Status: {{character?.isARider ? 'Rider' : 'Non-Rider'}}</p>
-  <img src="/images/{{character?.imageName}}.png" alt="Portrait of {{character?.name}}"/>
+<div *ngIf="character">
+  <h2>{{character.name | titlecase}}</h2>
+  <h3>{{character.riderName }}</h3>
+  <p>#{{character.id}}</p>
+  <p *ngIf="character.age">Age: {{character?.age}}</p> <!-- only display age if possible -->
+  <p>Gender: {{character.gender}}</p>
+  <p>Rider Type: {{character | typeColor }}</p>
+  <p>Motif: {{character.motif}}</p>
+  <p>Finisher: "{{character.finisherMove | uppercase}}"</p>
+  <p>Debut: {{character.debutDate | date:'longDate'}}</p>
+  <p>Status: {{character.isARider ? 'Rider' : 'Non-Rider'}}</p>
+  <img src="/images/{{character.imageName}}.png" alt="Portrait of {{character?.name}}"/>
 </div>
 
 

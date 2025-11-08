@@ -34,6 +34,7 @@ export class ModifyCharacterComponent implements OnInit {
       type: [''],
       motif: [''],
       finisherMove: [''],
+      debutDate: [''],
       isARider: [true],
       imageName: ['']
     });
