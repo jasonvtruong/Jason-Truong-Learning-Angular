@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Character} from '../Shared/Models/character';
-import {DatePipe, NgForOf, NgIf, TitleCasePipe, UpperCasePipe} from '@angular/common';
+import {DatePipe, NgForOf, NgIf, NgStyle, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CharacterService} from '../Services/character.service';
 import {TypeColorPipe} from '../pipes/type-color.pipe';
+import {GenderColourPipe} from '../pipes/gender-colour.pipe';
 
 @Component({
   selector: 'app-character-list-item',
@@ -13,7 +14,9 @@ import {TypeColorPipe} from '../pipes/type-color.pipe';
     UpperCasePipe,
     TitleCasePipe,
     DatePipe,
-    TypeColorPipe
+    TypeColorPipe,
+    GenderColourPipe,
+    NgStyle
   ],
   templateUrl: './character-list-item.component.html',
   styleUrl: './character-list-item.component.css'
