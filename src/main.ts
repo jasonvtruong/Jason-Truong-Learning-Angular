@@ -13,11 +13,19 @@ import {InMemoryDataService} from './app/Services/in-memory-data.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/characters', pathMatch: 'full'},
-  {path: 'characters', component: CharacterListComponent},
-  {path: 'characters/:id', component: CharacterListItemComponent},
-  {path: 'modify-character', component: ModifyCharacterComponent},
-  {path: 'modify-character/:id', component: ModifyCharacterComponent},
-  {path: '**', component: PageNotFoundComponent} // Wildcard route
+  {path: 'characters', component: CharacterListComponent},    // eagerly loaded
+  {path: 'characters/:id',
+    loadComponent: () =>
+      import('./app/character-list-item/character-list-item.component').then(m => m.CharacterListItemComponent)},  // lazy load
+  {path: 'modify-character',
+    loadComponent: () =>
+      import('./app/modify-character/modify-character.component').then(m => m.ModifyCharacterComponent)},
+  {path: 'modify-character/:id',
+    loadComponent: () =>
+      import('./app/modify-character/modify-character.component').then(m => m.ModifyCharacterComponent)},
+  {path: '**',  // Wildcard route
+    loadComponent: () =>
+      import('./app/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent)}
 ];
 
 bootstrapApplication(App, {
