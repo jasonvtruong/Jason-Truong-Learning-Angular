@@ -4,6 +4,7 @@ import {CharacterService} from '../Services/character.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {CharacterListItemComponent} from '../character-list-item/character-list-item.component';
 import {Router, RouterLink} from '@angular/router';
+import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
 
 @Component({
   selector: 'app-character-list',
@@ -11,7 +12,8 @@ import {Router, RouterLink} from '@angular/router';
     NgForOf,
     NgIf,
     CharacterListItemComponent,
-    RouterLink
+    RouterLink,
+    HoverHighlightDirective
   ],
   templateUrl: './character-list.component.html',
   styleUrl: './character-list.component.css'

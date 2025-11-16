@@ -5,10 +5,10 @@
 
   <div class="buttons">
     <!-- Edit Button -->
-    <button type="button" [routerLink]="['/modify-character', character.id]">Edit</button>
+    <button type="button" [routerLink]="['/modify-character', character.id]" [appHoverHighlight]="'indigo'">Edit</button>
 
     <!-- Delete Button -->
-    <button type="button" (click)="onDelete(character.id)">Delete</button>
+    <button type="button" (click)="onDelete(character.id)" [appHoverHighlight]="'maroon'">Delete</button>
   </div>
 }
 
