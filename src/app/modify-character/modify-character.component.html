@@ -5,12 +5,12 @@
 <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="id">ID</label>
-    <input type="number" id="id" formControlName="id" />
+    <input type="number" id="id" formControlName="id" appHighlightOnFocus />
   </div>
 
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" id="name" formControlName="name" />
+    <input type="text" id="name" formControlName="name" appHighlightOnFocus />
   </div>
 
   @if(characterForm.get('name')?.invalid){
@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <label for="age">Age</label>
-    <input type="number" id="age" formControlName="age" />
+    <input type="number" id="age" formControlName="age" appHighlightOnFocus />
   </div>
 
   @if(characterForm.get('age')?.invalid){
@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <label for="gender">Gender</label>
-    <select id="gender" formControlName="gender">
+    <select id="gender" formControlName="gender" appHighlightOnFocus>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
     </select>
@@ -36,7 +36,7 @@
 
   <div class="form-group">
     <label for="riderName">Rider Name</label>
-    <input type="text" id="riderName" formControlName="riderName" />
+    <input type="text" id="riderName" formControlName="riderName" appHighlightOnFocus />
   </div>
 
   @if(characterForm.get('riderName')?.invalid){
@@ -45,7 +45,7 @@
 
   <div class="form-group">
     <label for="type">Rider Type</label>
-    <select id="type" formControlName="type">
+    <select id="type" formControlName="type" appHighlightOnFocus>
       <option value="Primary">Primary</option>
       <option value="Secondary">Secondary</option>
       <option value="Tertiary">Tertiary</option>
@@ -56,31 +56,31 @@
 
   <div class="form-group">
     <label for="motif">Motif</label>
-    <input type="text" id="motif" formControlName="motif" />
+    <input type="text" id="motif" formControlName="motif" appHighlightOnFocus />
   </div>
 
   <div class="form-group">
     <label for="finisherMove">Finisher Move</label>
-    <input type="text" id="finisherMove" formControlName="finisherMove" />
+    <input type="text" id="finisherMove" formControlName="finisherMove" appHighlightOnFocus />
   </div>
 
   <div class="form-group">
     <label for="debutDate">Date</label>
-    <input type="date" id="debutDate" formControlName="debutDate" />
+    <input type="date" id="debutDate" formControlName="debutDate" appHighlightOnFocus />
   </div>
 
   <div class="form-group">
     <label for="isARider">Rider Status</label>
-    <input type="checkbox" id="isARider" formControlName="isARider" />
+    <input type="checkbox" id="isARider" formControlName="isARider" appHighlightOnFocus />
   </div>
 
   <div class="form-group">
     <label for="imageName">Image Name</label>
-    <input type="text" id="imageName" formControlName="imageName" />
+    <input type="text" id="imageName" formControlName="imageName" appHighlightOnFocus />
   </div>
 
 
   <!-- Submit Button -->
-  <button type="submit">Submit</button>
+  <button type="submit" appHighlightOnFocus>Submit</button>
 
 </form>

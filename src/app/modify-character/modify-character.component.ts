@@ -4,12 +4,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CharacterService} from '../Services/character.service';
 import {Character} from '../Shared/Models/character';
 import {NgIf} from '@angular/common';
+import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
 
 @Component({
   selector: 'app-modify-character',
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    HighlightOnFocusDirective
   ],
   templateUrl: './modify-character.component.html',
   styleUrl: './modify-character.component.css'
