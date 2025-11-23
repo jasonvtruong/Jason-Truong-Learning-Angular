@@ -7,10 +7,13 @@ import {CharacterListItemComponent} from './character-list-item/character-list-i
 import {characterList} from './data/mock-character';
 import {CharacterService} from './Services/character.service';
 import { NgOptimizedImage } from '@angular/common';
+import {MatToolbar} from '@angular/material/toolbar';
+import {MatButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
-  imports: [NgForOf, NgIf, CharacterListComponent, CharacterListItemComponent, RouterOutlet, RouterLink, RouterLinkActive, NgOptimizedImage],
+  imports: [NgForOf, NgIf, CharacterListComponent, CharacterListItemComponent, RouterOutlet, RouterLink, RouterLinkActive, NgOptimizedImage, MatToolbar, MatButton, MatIcon],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -20,19 +23,5 @@ export class App {
 
   // inject dependency by declaring it in constructor
   constructor(private characterService: CharacterService) {}
-
-
-  // create character object to populate the content-list item
-  public newCharacter: Character | undefined;
-
-  //Set up the ngonit to listen for a getCharacterbyId
-  ngOnInit(){
-    this.characterService.getCharacterById(6).subscribe(character =>{
-      //Save it in var
-      this.newCharacter = character;
-    })
-  }
-
-  //Call that var in the propety binding in the html
 
 }

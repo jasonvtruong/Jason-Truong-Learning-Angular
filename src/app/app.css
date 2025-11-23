@@ -3,19 +3,11 @@
   src: url('../fonts/Overpass-Regular.ttf') format('truetype');
 }
 
-.nav-bar {
-  background-color: rgb(214, 202, 234);
-  padding: 16px 20px;
+mat-icon {
+  color: black;
 }
 
-.nav-bar nav {
-  display: flex;
-  justify-content: center;
+.spacer {
+  flex: 1 1 auto;
 }
 
-.nav-bar a {
-  margin: 0 50px;
-  font-family: Overpass, sans-serif;
-  color: rgb(160, 156, 185);
-  text-decoration: none;
-}

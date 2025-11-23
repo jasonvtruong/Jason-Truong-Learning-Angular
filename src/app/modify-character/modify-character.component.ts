@@ -12,6 +12,7 @@ import {MatCheckbox} from '@angular/material/checkbox';
 import {MatButton} from '@angular/material/button';
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-modify-character',
@@ -33,7 +34,8 @@ import {provideNativeDateAdapter} from '@angular/material/core';
     MatDatepicker,
     MatHint,
     MatDatepickerToggle,
-    MatSuffix
+    MatSuffix,
+    MatTooltip
   ],
   templateUrl: './modify-character.component.html',
   styleUrl: './modify-character.component.css'

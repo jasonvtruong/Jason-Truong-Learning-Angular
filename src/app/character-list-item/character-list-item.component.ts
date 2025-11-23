@@ -56,8 +56,6 @@ export class CharacterListItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.characterService.getCharacters().subscribe(cha`1racters => {
-    //   this.characterList = characters;
 
       this.characterService.getCharacters().subscribe({
         next: (data: Character[]) => {

@@ -3,12 +3,12 @@
 <div *ngIf="error" class="error">{{error}}</div>
 
 <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
+  <mat-form-field matTooltip="The character's ID in the list" matTooltipPosition="right">
     <mat-label>ID</mat-label>
     <input matInput type="number" formControlName="id" />
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field matTooltip="The character's full name" matTooltipPosition="right">
     <mat-label>Name</mat-label>
     <input matInput type="text" formControlName="name" />
   </mat-form-field>
@@ -18,7 +18,7 @@
     <div>Name is required</div>
   }
 
-  <mat-form-field>
+  <mat-form-field matTooltip="The character's age" matTooltipPosition="right">
     <mat-label>Age</mat-label>
     <input matInput type="number" formControlName="age" />
   </mat-form-field>
@@ -28,7 +28,7 @@
     <div>Age must be 2 digits</div>
   }
 
-  <mat-form-field>
+  <mat-form-field matTooltip="The character's gender" matTooltipPosition="right">
     <mat-label>Gender</mat-label>
     <mat-select formControlName="gender">
       <mat-option value="Male">Male</mat-option>
@@ -36,7 +36,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field matTooltip="The character's Rider name" matTooltipPosition="right">
     <mat-label>Rider Name</mat-label>
     <input matInput type="text" formControlName="riderName" />
   </mat-form-field>
@@ -46,7 +46,7 @@
     <div>Rider name cannot be longer than 20 characters</div>
   }
 
-  <mat-form-field>
+  <mat-form-field matTooltip="The character's Rider type" matTooltipPosition="right">
     <mat-label>Rider Type</mat-label>
     <mat-select formControlName="type">
       <mat-option value="Primary">Primary</mat-option>
@@ -55,17 +55,17 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field matTooltip="The character's Rider motif" matTooltipPosition="right">
     <mat-label>Motif</mat-label>
     <input matInput type="text" formControlName="motif" />
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field matTooltip="The name of the character's finishing move" matTooltipPosition="right">
     <mat-label>Finisher Move</mat-label>
     <input matInput type="text" formControlName="finisherMove" />
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field matTooltip="The date that the character debuted" matTooltipPosition="right">
     <mat-label>Date</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="debutDate" />
     <mat-hint>MM/DD/YYYY</mat-hint>
@@ -73,9 +73,9 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <mat-checkbox formControlName="isARider">Rider Status</mat-checkbox>
+  <mat-checkbox formControlName="isARider" matTooltip="The character's status as a Rider or civillian" matTooltipPosition="right">Rider Status</mat-checkbox>
 
-  <mat-form-field>
+  <mat-form-field matTooltip="Name of the character's image file" matTooltipPosition="right">
     <mat-label>Image Name</mat-label>
     <input matInput type="text" formControlName="imageName" />
   </mat-form-field>

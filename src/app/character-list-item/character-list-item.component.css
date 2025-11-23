@@ -15,21 +15,11 @@ mat-card {
   font-size: 1.3em;
 }
 
-div {
-  /*background-color: rgb(47, 39, 59);*/
-  /*margin: 20px auto;*/
-  /*padding: 4px 30px;*/
-  /*max-width: 600px;*/
-  /*border-radius: 10px;*/
-  /*box-shadow: 0 0 5px rgb(21, 17, 26);*/
-}
-
 h2, h3 {
   font-family: "Overpass", sans-serif;
 }
 
 h2 {
-  /*color: rgb(201, 200, 246);*/
   font-size: 2em;
 }
 
@@ -42,7 +32,6 @@ h3 {
 
 p {
   font-family: "Rubik", sans-serif;
-  /*color: rgb(160, 156, 185);*/
 }
 
 p:last-of-type {

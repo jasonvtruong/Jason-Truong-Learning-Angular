@@ -1,13 +1,10 @@
-<div class="nav-bar">
-  <nav>
-    <a routerLink="/characters" routerLinkActive="active"><img ngSrc="/images/icon-characters.png" width="20" height="20" />Character List</a>
-    <a routerLink="/modify-character" routerLinkActive="active"><img ngSrc="/images/icon-modifycharacters.png" width="20" height="20" />Modify Character</a>
-  </nav>
-</div>
+<mat-toolbar>
+  <span>Kamen Rider Viewer</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/characters" routerLinkActive="active"><mat-icon>person</mat-icon>Character List</button>
+  <button mat-button routerLink="/modify-character" routerLinkActive="active"><mat-icon>edit_note</mat-icon>Modify Character</button>
+</mat-toolbar>
 
 <div class="app-container">
   <router-outlet></router-outlet>
 </div>
-
-<!--<app-character-list-item [character]="newCharacter"></app-character-list-item>-->
-<!--<app-character-list></app-character-list>-->
