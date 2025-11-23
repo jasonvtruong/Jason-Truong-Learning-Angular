@@ -1,10 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Character} from '../Shared/Models/character';
 import {CharacterService} from '../Services/character.service';
-import {NgForOf, NgIf} from '@angular/common';
+import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
 import {CharacterListItemComponent} from '../character-list-item/character-list-item.component';
 import {Router, RouterLink} from '@angular/router';
 import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatPaginator} from '@angular/material/paginator';
+import {
+  MatCell, MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatTable,
+  MatTableDataSource
+} from '@angular/material/table';
+import {GenderColourPipe} from '../pipes/gender-colour.pipe';
+import {MatIcon} from '@angular/material/icon';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-character-list',
@@ -13,22 +27,47 @@ import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
     NgIf,
     CharacterListItemComponent,
     RouterLink,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    MatCardModule,
+    MatButtonModule,
+    MatPaginator,
+    AsyncPipe,
+    MatTable,
+    MatColumnDef,
+    MatHeaderCell,
+    MatHeaderCellDef,
+    MatCell,
+    MatCellDef,
+    GenderColourPipe,
+    MatHeaderRow,
+    MatRow,
+    MatHeaderRowDef,
+    MatRowDef,
+    MatIcon,
+    MatTooltip
   ],
   templateUrl: './character-list.component.html',
   styleUrl: './character-list.component.css'
 })
 export class CharacterListComponent implements OnInit {
   characterList: Character[] = [];
+  displayedColumns: string[] = ['id', 'name', 'gender', 'type', 'riderStatus', 'image', 'buttons'];
+  dataSource: MatTableDataSource<Character> = new MatTableDataSource(this.characterList);
   error: string | null = null; // variable for error message
 
+  // reference to the paginator
+  @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
   constructor(private characterService: CharacterService, private router: Router) {
 
   }
 
   ngOnInit() {
     this.characterService.getCharacters().subscribe({
-        next: (data: Character[]) => this.characterList = data,
+        next: (data: Character[]) => {
+          this.characterList = data;
+          this.dataSource.data = data; // assign data to dataSource
+          this.dataSource.paginator = this.paginator; // link paginator to data source
+        },
         error: err => {
           this.error = "Error fetching Characters"; // error message
           console.error("Error fetching Characters", err);
@@ -41,12 +80,21 @@ export class CharacterListComponent implements OnInit {
     // CRUD tests for bonus mark
   } // end ngOnInit
 
+  sendToEdit(id:number): void {
+    event?.stopPropagation();
+    this.router.navigate(['/modify-character', id]);
+  }
+
   onDelete(id:number): void {
     this.characterService.deleteCharacter(id).subscribe(() => this.router.navigate(['/characters']));
 
     // retrieve the characters again to update changes
     this.characterService.getCharacters().subscribe({
-      next: (data: Character[]) => this.characterList = data,
+      next: (data: Character[]) => {
+        this.characterList = data;
+        this.dataSource.data = data; // assign data to dataSource
+        this.dataSource.paginator = this.paginator; // link paginator to data source
+      },
       error: err => {
         this.error = "Error fetching Characters"; // error message
         console.error("Error fetching Characters", err);

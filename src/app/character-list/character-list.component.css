@@ -1,6 +1,23 @@
+.mat-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;   /* comment this out if showing cards w/ paginator */
+  margin: 0 auto;
+}
+
+.character-card {
+  max-width: 240px;
+  margin: 15px;
+}
+
+img {
+  width: 60%;
+}
+
 h1 {
-  font-family: "Overpass", sans-serif;
-  color: white;
+  /*font-family: "Overpass", sans-serif;*/
+  /*color: white;*/
   font-size: 2.5em;
   text-align: center;
 }
@@ -38,14 +55,15 @@ button {
   margin: 5px;
   font-family: "Overpass", sans-serif;
   font-size: 1.3em;
-  color: white;
-  background-color: rgb(45, 36, 55);
-  border: 3px solid rebeccapurple;
+  /*color: white;*/
+  /*background-color: rgb(45, 36, 55);*/
+  /*border: 1px solid royalblue;*/
+  box-shadow: 0 0 2px 0;
   border-radius: 5px;
   padding: 5px 25px;
 }
 
-button:hover {
-  box-shadow: 0 0 8px 3px rgb(91, 71, 112);
-  transition: 0.2s;
-}
+/*button:hover {*/
+/*  box-shadow: 0 0 8px 3px rgb(91, 71, 112);*/
+/*  transition: 0.2s;*/
+/*}*/

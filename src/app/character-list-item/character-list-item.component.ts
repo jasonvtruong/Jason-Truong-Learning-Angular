@@ -5,6 +5,17 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CharacterService} from '../Services/character.service';
 import {TypeColorPipe} from '../pipes/type-color.pipe';
 import {GenderColourPipe} from '../pipes/gender-colour.pipe';
+import {
+  MatCard,
+  MatCardContent,
+  MatCardHeader,
+  MatCardSubtitle,
+  MatCardTitle,
+  MatCardTitleGroup
+} from '@angular/material/card';
+import {MatButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-character-list-item',
@@ -16,7 +27,19 @@ import {GenderColourPipe} from '../pipes/gender-colour.pipe';
     DatePipe,
     TypeColorPipe,
     GenderColourPipe,
-    NgStyle
+    NgStyle,
+    MatCard,
+    MatCardHeader,
+    MatCard,
+    MatCardHeader,
+    MatCardContent,
+    MatCardTitleGroup,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatButton,
+    MatIcon,
+    MatIcon,
+    MatTooltip
   ],
   templateUrl: './character-list-item.component.html',
   styleUrl: './character-list-item.component.css'
@@ -28,7 +51,8 @@ export class CharacterListItemComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +76,10 @@ export class CharacterListItemComponent implements OnInit {
         complete: () => console.log("Character data fetch complete!")
       });
 
+  }
+
+  goBack(): void {
+    this.router.navigate([['/characters']]);
   }
 
 

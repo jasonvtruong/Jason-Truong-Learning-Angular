@@ -3,84 +3,85 @@
 <div *ngIf="error" class="error">{{error}}</div>
 
 <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="id">ID</label>
-    <input type="number" id="id" formControlName="id" appHighlightOnFocus />
-  </div>
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input matInput type="number" formControlName="id" />
+  </mat-form-field>
 
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" id="name" formControlName="name" appHighlightOnFocus />
-  </div>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" formControlName="name" />
+  </mat-form-field>
 
+  <!-- error message -->
   @if(characterForm.get('name')?.invalid){
     <div>Name is required</div>
   }
 
-  <div class="form-group">
-    <label for="age">Age</label>
-    <input type="number" id="age" formControlName="age" appHighlightOnFocus />
-  </div>
+  <mat-form-field>
+    <mat-label>Age</mat-label>
+    <input matInput type="number" formControlName="age" />
+  </mat-form-field>
 
+  <!-- error message -->
   @if(characterForm.get('age')?.invalid){
     <div>Age must be 2 digits</div>
   }
 
-  <div class="form-group">
-    <label for="gender">Gender</label>
-    <select id="gender" formControlName="gender" appHighlightOnFocus>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-  </div>
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-  <div class="form-group">
-    <label for="riderName">Rider Name</label>
-    <input type="text" id="riderName" formControlName="riderName" appHighlightOnFocus />
-  </div>
+  <mat-form-field>
+    <mat-label>Rider Name</mat-label>
+    <input matInput type="text" formControlName="riderName" />
+  </mat-form-field>
 
+  <!-- error message -->
   @if(characterForm.get('riderName')?.invalid){
     <div>Rider name cannot be longer than 20 characters</div>
   }
 
-  <div class="form-group">
-    <label for="type">Rider Type</label>
-    <select id="type" formControlName="type" appHighlightOnFocus>
-      <option value="Primary">Primary</option>
-      <option value="Secondary">Secondary</option>
-      <option value="Tertiary">Tertiary</option>
-    </select>
+  <mat-form-field>
+    <mat-label>Rider Type</mat-label>
+    <mat-select formControlName="type">
+      <mat-option value="Primary">Primary</mat-option>
+      <mat-option value="Secondary">Secondary</mat-option>
+      <mat-option value="Tertiary">Tertiary</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <!--    <input type="text" id="type" />-->
-  </div>
+  <mat-form-field>
+    <mat-label>Motif</mat-label>
+    <input matInput type="text" formControlName="motif" />
+  </mat-form-field>
 
-  <div class="form-group">
-    <label for="motif">Motif</label>
-    <input type="text" id="motif" formControlName="motif" appHighlightOnFocus />
-  </div>
+  <mat-form-field>
+    <mat-label>Finisher Move</mat-label>
+    <input matInput type="text" formControlName="finisherMove" />
+  </mat-form-field>
 
-  <div class="form-group">
-    <label for="finisherMove">Finisher Move</label>
-    <input type="text" id="finisherMove" formControlName="finisherMove" appHighlightOnFocus />
-  </div>
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="debutDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 
-  <div class="form-group">
-    <label for="debutDate">Date</label>
-    <input type="date" id="debutDate" formControlName="debutDate" appHighlightOnFocus />
-  </div>
+  <mat-checkbox formControlName="isARider">Rider Status</mat-checkbox>
 
-  <div class="form-group">
-    <label for="isARider">Rider Status</label>
-    <input type="checkbox" id="isARider" formControlName="isARider" appHighlightOnFocus />
-  </div>
-
-  <div class="form-group">
-    <label for="imageName">Image Name</label>
-    <input type="text" id="imageName" formControlName="imageName" appHighlightOnFocus />
-  </div>
+  <mat-form-field>
+    <mat-label>Image Name</mat-label>
+    <input matInput type="text" formControlName="imageName" />
+  </mat-form-field>
 
 
   <!-- Submit Button -->
-  <button type="submit" appHighlightOnFocus>Submit</button>
+  <button mat-raised-button type="submit">Submit</button>
 
 </form>

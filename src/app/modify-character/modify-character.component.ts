@@ -5,13 +5,35 @@ import {CharacterService} from '../Services/character.service';
 import {Character} from '../Shared/Models/character';
 import {NgIf} from '@angular/common';
 import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
+import {MatFormField, MatHint, MatLabel, MatSuffix} from '@angular/material/form-field';
+import {MatInput} from '@angular/material/input';
+import {MatOption, MatSelect} from '@angular/material/select';
+import {MatCheckbox} from '@angular/material/checkbox';
+import {MatButton} from '@angular/material/button';
+import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
 
 @Component({
   selector: 'app-modify-character',
+  providers: [provideNativeDateAdapter()],
   imports: [
     ReactiveFormsModule,
     NgIf,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    MatSelect,
+    MatOption,
+    MatSelect,
+    MatOption,
+    MatCheckbox,
+    MatButton,
+    MatDatepickerInput,
+    MatDatepicker,
+    MatHint,
+    MatDatepickerToggle,
+    MatSuffix
   ],
   templateUrl: './modify-character.component.html',
   styleUrl: './modify-character.component.css'

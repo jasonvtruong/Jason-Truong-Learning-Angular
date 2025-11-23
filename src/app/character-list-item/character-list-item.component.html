@@ -1,15 +1,32 @@
-<div *ngIf="character">
-  <h2>{{character.name | titlecase}}</h2>
-  <h3>{{character.riderName }}</h3>
-  <p>#{{character.id}}</p>
-  <p *ngIf="character.age">Age: {{character?.age}}</p> <!-- only display age if possible -->
-  <p [ngStyle]="{'color': character | genderColour}">Gender: {{character.gender}}</p>
-  <p>Rider Type: {{character | typeColor }}</p>
-  <p>Motif: {{character.motif}}</p>
-  <p>Finisher: "{{character.finisherMove | uppercase}}"</p>
-  <p>Debut: {{character.debutDate | date:'longDate'}}</p>
-  <p>Status: {{character.isARider ? 'Rider' : 'Non-Rider'}}</p>
-  <img src="/images/{{character.imageName}}.png" alt="Portrait of {{character?.name}}"/>
-</div>
+<mat-card *ngIf="character">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{character.name | titlecase}}</mat-card-title>
+      <mat-card-subtitle>{{character.riderName}}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>#{{character.id}}</p>
+    <p *ngIf="character.age">Age: {{character?.age}}</p> <!-- only display age if possible -->
+    <p [ngStyle]="{'color': character | genderColour}">Gender: {{character.gender}}</p>
+    <p>Rider Type: {{character | typeColor }}</p>
+    <p>Motif: {{character.motif}}</p>
+    <p>Finisher: "{{character.finisherMove | uppercase}}"</p>
+    <p>Debut: {{character.debutDate | date:'longDate'}}</p>
+    <p>Status: {{character.isARider ? 'Rider' : 'Non-Rider'}}</p>
+    <img src="/images/{{character.riderName}}.png" alt="Portrait of {{character?.riderName}}"/>
+    <img src="/images/{{character.imageName}}.png" alt="Portrait of {{character?.name}}"/>
+
+    <div class="nav-buttons">
+
+      <button mat-raised-button (click)="goBack()"
+              matTooltip="Return to the character list page"
+              matTooltipPosition="right">
+        <mat-icon>home</mat-icon> Back to List
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
 
 
