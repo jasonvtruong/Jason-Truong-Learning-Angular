@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {Character} from '../Shared/Models/character';
 import {CharacterService} from '../Services/character.service';
 import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
@@ -19,32 +19,33 @@ import {
 import {GenderColourPipe} from '../pipes/gender-colour.pipe';
 import {MatIcon} from '@angular/material/icon';
 import {MatTooltip} from '@angular/material/tooltip';
+import {MatSort, Sort} from '@angular/material/sort';
+import {MatSortHeader} from '@angular/material/sort';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-character-list',
   imports: [
-    NgForOf,
     NgIf,
-    CharacterListItemComponent,
     RouterLink,
     HoverHighlightDirective,
     MatCardModule,
     MatButtonModule,
     MatPaginator,
-    AsyncPipe,
     MatTable,
     MatColumnDef,
     MatHeaderCell,
     MatHeaderCellDef,
     MatCell,
     MatCellDef,
-    GenderColourPipe,
     MatHeaderRow,
     MatRow,
     MatHeaderRowDef,
     MatRowDef,
     MatIcon,
-    MatTooltip
+    MatTooltip,
+    MatSort,
+    MatSortHeader
   ],
   templateUrl: './character-list.component.html',
   styleUrl: './character-list.component.css'
@@ -54,9 +55,11 @@ export class CharacterListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'gender', 'type', 'riderStatus', 'image', 'buttons'];
   dataSource: MatTableDataSource<Character> = new MatTableDataSource(this.characterList);
   error: string | null = null; // variable for error message
+  private _liveAnnouncer = inject(LiveAnnouncer);
 
   // reference to the paginator
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
+  @ViewChild(MatSort) sort: MatSort | null = null;
   constructor(private characterService: CharacterService, private router: Router) {
 
   }
@@ -79,6 +82,22 @@ export class CharacterListComponent implements OnInit {
 
     // CRUD tests for bonus mark
   } // end ngOnInit
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+
+  announceSortChange(sortState: Sort) {
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
+  }
 
   sendToEdit(id:number): void {
     event?.stopPropagation();
