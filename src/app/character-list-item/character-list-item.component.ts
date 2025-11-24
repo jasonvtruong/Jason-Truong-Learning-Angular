@@ -77,7 +77,7 @@ export class CharacterListItemComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate([['/characters']]);
+    this.router.navigate(['/characters']);
   }
 
 
