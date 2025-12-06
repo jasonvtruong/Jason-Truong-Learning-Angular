@@ -31,7 +31,7 @@
     <ng-container matColumnDef="image">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let character">
-        <img src="/images/{{character.riderName}}.png" alt="Portrait of {{character?.riderName}}"/>
+        <img ngSrc="{{character.riderName}}.png" alt="Portrait of {{character?.riderName}}"/>
       </td>
     </ng-container>
 

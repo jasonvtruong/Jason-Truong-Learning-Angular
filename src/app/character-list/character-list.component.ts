@@ -1,7 +1,7 @@
 import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {Character} from '../Shared/Models/character';
 import {CharacterService} from '../Services/character.service';
-import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
+import {AsyncPipe, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {CharacterListItemComponent} from '../character-list-item/character-list-item.component';
 import {Router, RouterLink} from '@angular/router';
 import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
@@ -45,7 +45,8 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
     MatIcon,
     MatTooltip,
     MatSort,
-    MatSortHeader
+    MatSortHeader,
+    NgOptimizedImage
   ],
   templateUrl: './character-list.component.html',
   styleUrl: './character-list.component.css'

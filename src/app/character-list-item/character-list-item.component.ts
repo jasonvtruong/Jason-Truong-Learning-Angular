@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Character} from '../Shared/Models/character';
-import {DatePipe, NgForOf, NgIf, NgStyle, TitleCasePipe, UpperCasePipe} from '@angular/common';
+import {DatePipe, NgForOf, NgIf, NgOptimizedImage, NgStyle, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CharacterService} from '../Services/character.service';
 import {TypeColorPipe} from '../pipes/type-color.pipe';
@@ -39,7 +39,8 @@ import {MatTooltip} from '@angular/material/tooltip';
     MatButton,
     MatIcon,
     MatIcon,
-    MatTooltip
+    MatTooltip,
+    NgOptimizedImage
   ],
   templateUrl: './character-list-item.component.html',
   styleUrl: './character-list-item.component.css'
