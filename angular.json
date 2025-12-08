@@ -27,8 +27,7 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css"
-            ],
-            "outputPath": "dist/Jason-Truong-Learning-Angular"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,9 +86,6 @@
               "src/styles.css"
             ]
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

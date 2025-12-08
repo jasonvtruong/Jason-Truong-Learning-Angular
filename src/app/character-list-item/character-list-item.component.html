@@ -15,8 +15,8 @@
     <p>Finisher: "{{character.finisherMove | uppercase}}"</p>
     <p>Debut: {{character.debutDate | date:'longDate'}}</p>
     <p>Status: {{character.isARider ? 'Rider' : 'Non-Rider'}}</p>
-    <img ngSrc="{{character.riderName}}.png" alt="Portrait of {{character?.riderName}}"/>
-    <img ngSrc="{{character.imageName}}.png" alt="Portrait of {{character?.name}}"/>
+    <img src="/images/{{character.riderName}}.png" alt="Portrait of {{character?.riderName}}"/>
+    <img src="/images/{{character.imageName}}.png" alt="Portrait of {{character?.name}}"/>
 
     <div class="nav-buttons">
 
